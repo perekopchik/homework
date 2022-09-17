@@ -1,1 +1,17 @@
-console.log('Hi everyone');
+/*Напишите функцию, которая запускает цикл. Цикл на каждой итерации предлагает через prompt ввести число, большее 100 (но максимум 10 итераций цикла) . Если посетитель ввёл число меньше ста – попросить ввести ещё раз, и так далее. Если пользователь вводит число больше ста, текст или цикл заканчивает все итерации, то функция выводит в консоль последний ввод пользователя и завершает функцию.*/
+function getNumber (){
+    for(let i = 0;i<10 ;i++ ){
+        let numbers = prompt("Введите число : ");
+        if ( i=== 9){
+            return  numbers;
+        }
+        if(numbers<=100) {
+            continue;
+        }
+        if (numbers>100 || typeof numbers === "string" ){
+            return numbers;
+        }
+    }
+}
+const currentNumber = getNumber();
+console.log(currentNumber);
