@@ -3,7 +3,7 @@ function getNumber (){
     for(let i = 0;i<10 ;i++ ){
         const numbers = prompt("¬ведите число : ");
         const number = Number(numbers);
-        if (Number.isNaN(number) || i==9 || number>100){
+        if (Number.isNaN(number) || i===9 || number>100){
             return numbers;
         }
     }
