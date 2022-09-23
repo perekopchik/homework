@@ -1,12 +1,11 @@
 /*
 Создать функцию, вычисляющую среднее арифметическое числовых элементов массива любой длины.*/
-function calcAverage (newArray){
-    let number = 0;
-    for(let value of newArray) {
-        number += value;
-    }
-    const arrayNumber = newArray.length;
-    return number / arrayNumber;
+newArray = [10,20,30];
+const callBack  = function (previousValue,currentValue){
+    return previousValue+currentValue;
 }
-const average = calcAverage([10,20,30]);
+let number =  newArray.reduce(callBack,0);
+const arrayLength = newArray.length;
+const average = number/arrayLength;
 console.log(average);
+
