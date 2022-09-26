@@ -4,7 +4,7 @@ function deleteSymbols (Text,[a,b]){
     let newString = ('');
     for( let value in Text){
             if(Text[value]===a || Text[value] === b) {
-                delete (value);
+                delete(value);
             } else{
                 newString += Text[value];
             }
