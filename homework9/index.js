@@ -1,19 +1,13 @@
 //Есть блок с текстом на странице и кнопка. При нажатии на кнопку текст изменяет цвет. При повторном нажатии – возвращается предыдущий цвет
 const button = document.querySelector('.textColor');
-const text = document.querySelector('span');
 let value = false;
-const black = function () {
-    text.style.color = 'black';
-}
-const red = function () {
-    text.style.color = 'red';
-}
-button.onclick = function (){
+button.addEventListener('click',function (){
+    const text = document.querySelector('span');
     if(value){
-        red();
+        text.style.color = 'red';
         value = false;
     }else{
-        black();
+        text.style.color = 'black';
         value = true;
     }
-}
+})
