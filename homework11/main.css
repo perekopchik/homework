@@ -1,0 +1,54 @@
+.todo-item__desc--underline {
+    text-decoration: line-through;
+}
+.todo-item__desc--notUnderline {
+    text-decoration: solid ;
+}
+body {
+    background-color: deepskyblue;
+    text-align: center;
+    padding: 20px;
+}
+.form__input{
+    border-radius: 3px;
+    width: 600px;
+    height: 40px;
+}
+.todo-item {
+    display: flex;
+    background-color: #eab676 ;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 680px;
+    padding: 10px;
+    margin-left: 390px;
+    margin-bottom: 10px;
+
+}
+hr{
+    position: relative;
+    width: 700px;
+}
+.todo-item__delete {
+    margin-left: auto;
+    border: 1px solid black;
+    border-radius: 2px;
+
+}
+h1,h2{
+    position: relative;
+    right: 300px;
+}
+.form{
+    position: relative;
+    left: 390px;
+    padding-top:10px ;
+    padding-bottom:10px ;
+    width: 700px;
+    background-color: white;
+    border: 1px double black;
+    border-radius: 10px;
+}
+.form_button {
+    height: 45px;
+}
