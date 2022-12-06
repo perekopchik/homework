@@ -1,9 +1,6 @@
 .todo-item__desc--underline {
     text-decoration: line-through;
 }
-.todo-item__desc--notUnderline {
-    text-decoration: solid ;
-}
 body {
     background-color: deepskyblue;
     text-align: center;
