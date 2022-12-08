@@ -24,28 +24,19 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function addToPhoto(cardValueInput, cardValuePhoto) {
+    function addToPhoto(cardValueInput, cardValuePhoto,option) {
         let cardValue = document.querySelector(cardValueInput);
         let cardValueToPhoto = document.querySelector(cardValuePhoto);
-        cardValue.addEventListener('keyup', function () {
+        cardValue.addEventListener(option, function () {
             let text = cardValue.value;
             cardValueToPhoto.innerHTML = text;
         })
     }
 
-    function addToPhotoDate(cardValueInput, cardValuePhoto) {
-        let cardValue = document.querySelector(cardValueInput);
-        let cardValueToPhoto = document.querySelector(cardValuePhoto);
-        cardValue.addEventListener('click', function () {
-            let text = cardValue.value;
-            cardValueToPhoto.innerHTML = text;
-        })
-    }
-
-    addToPhoto('.card-number-input', '.cardNumberPhoto');
-    addToPhoto('.card-holder-input', '.cardNamePhoto');
-    addToPhotoDate('.month-input', '.cardMonthPhoto');
-    addToPhotoDate('.year-input', '.cardYearPhoto');
+    addToPhoto('.card-number-input', '.cardNumberPhoto','keyup');
+    addToPhoto('.card-holder-input', '.cardNamePhoto','keyup');
+    addToPhoto('.month-input', '.cardMonthPhoto','click');
+    addToPhoto('.year-input', '.cardYearPhoto','click');
     const card = new Cards('.card-number-input', '.card-holder-input', '.month-input', '.year-input', '.cvv-input')
     document.querySelector('.js--form').addEventListener('submit', card.showCard)
 })
