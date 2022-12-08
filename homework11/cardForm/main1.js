@@ -28,8 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let cardValue = document.querySelector(cardValueInput);
         let cardValueToPhoto = document.querySelector(cardValuePhoto);
         cardValue.addEventListener(option, function () {
-            let text = cardValue.value;
-            cardValueToPhoto.innerHTML = text;
+            cardValueToPhoto.innerHTML = cardValue.value;
         })
     }
 
