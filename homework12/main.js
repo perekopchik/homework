@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 newElement.classList.add('active');
             }
         }
-        this.lenght = 15;
         /!*        const check = function (active, element, slide) {
                     if (active.nextElementSibling.textContent === slide) {
                         element.classList.add('slider__opacity');
