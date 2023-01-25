@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<div>
+    <table>
+        <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Age</th>
+        <th>Action</th>
+        </thead>
+        <tbody class="js--content"></tbody>
+    </table>
+    <div class="card">
+        <button class="button--add">Add User</button>
+    </div>
+    <form class="card--user">
+        <input class="form-control mb-1" type="text" name="name" placeholder="Name" required>
+        <input class="form-control mb-2" type="text" name="phone" placeholder="Phone" required>
+        <input class="form-control mb-3" type="number" name="age" placeholder="Age" required>
+        <button class="button--submit" type="submit">OK</button>
+    </form>
+    <code class="card p-4">
+        <pre class="js--user user-info"></pre>
+    </code>
+</div>
 </body>
 </html>
