@@ -23,7 +23,7 @@ th{
 }
 .button--add{
     border: 1px solid #236cff;
-    border-radius: 5px;
+    border-radius: 10px;
     height: 40px;
     width: 300px;
     margin: 0 auto;
@@ -47,6 +47,7 @@ div{
     margin-bottom: 20px;
 }
 input{
+    margin-left: 15px;
     border: 1px solid black;
     border-radius: 5px;
     margin-bottom: 8px;
@@ -54,10 +55,17 @@ input{
     height: 30px;
 }
 .button--submit{
+    margin-left: 17px;
     background-color: #236cff;
     border-color: #236cff;
     border-radius: 10px;
     color: white;
     height: 30px;
     width: 300px;
+}
+.card--user {
+    display: none;
+}
+.open{
+    display: block;
 }
