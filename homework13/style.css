@@ -1,5 +1,4 @@
 table{
-    border-bottom: 1px solid black;
     border-top: 1px solid black;
     margin: 0 auto;
     margin-bottom: 20px;
@@ -7,6 +6,7 @@ table{
 th{
     padding-top: 10px;
     padding-bottom: 10px;
+    border-bottom: 1px solid black;
     border-right: 1px solid black;
     border-left: 1px solid black;
     padding-right: 80px;
@@ -63,9 +63,29 @@ input{
     height: 30px;
     width: 300px;
 }
+/*.button_hidden{
+    display: none;
+}*/
+
 .card--user {
     display: none;
 }
 .open{
     display: block;
+}
+.hidden{
+    display: none;
+}
+td{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+.btn{
+    height: 40px;
+    margin: 2px;
+    border-radius: 5px;
+    border-color: #236cff;
+    background-color: #236cff;
+    color: white;
 }
