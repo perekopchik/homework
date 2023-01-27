@@ -42,22 +42,26 @@ function UserTable({_content, _form, _addButton, _userInfo, _localStorageKeyName
         const viewButton = _currentTr.querySelector('.js--view');
         const deleteButton = _currentTr.querySelector('.js--delete');
         const editButton = _currentTr.querySelector('.js--edit');
-        editButton.addEventListener('click', function () {
+        const handleEdit = () => {
             _form.classList.add('open');
             _buttonOk.setAttribute('type', 'button');
-            let input1 = document.querySelector('.mb-1').value = user.name;
-            let input2 = document.querySelector('.mb-2').value = user.phone;
-            let input3 = document.querySelector('.mb-3').value = user.age;
-            _buttonOk.addEventListener('click',function (){
-                users = JSON.parse(localStorage.getItem(_localStorageKeyName));
-                user.name= _form.elements['name'].value;
-                user.phone = _form.elements['age'].value;
-                user.age = _form.elements['phone'].value;
-                localStorage.setItem(_localStorageKeyName, JSON.stringify(users));
-                console.log(input1);
-
+            document.querySelector('.mb-1').value = user.name;
+            document.querySelector('.mb-2').value = user.phone;
+            document.querySelector('.mb-3').value = user.age;
+            _buttonOk.addEventListener('click', function () {
+                const users = JSON.parse(localStorage.getItem(_localStorageKeyName));
+                for (let n = 0; n < users.length; n++) {
+                    if (users[n].id === user.id) {
+                        users[n].name = _form.elements['name'].value;
+                        users[n].age = _form.elements['age'].value;
+                        users[n].phone = _form.elements['phone'].value;
+                        localStorage.setItem(_localStorageKeyName, JSON.stringify(users));
+                        location.reload();
+                    }
+                }
             })
-        })
+        }
+        editButton.addEventListener('click', handleEdit);
         const handleDelete = () => {
             users = JSON.parse(localStorage.getItem(_localStorageKeyName));
             for (let n = 0; n < users.length; n++) {
