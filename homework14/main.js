@@ -15,16 +15,16 @@ document.addEventListener('DOMContentLoaded', function () {
         const pattern1 = /[0-9]/g;
         const pattern2 = /[.,:/^_]/g;
         console.log(input.value);
-        if(input.value.match(pattern)===null){
+        if(input.value.match(pattern)){
             li1.classList.add('color');
         }
-        if(input.value.match(pattern1)===null){
+        if(input.value.match(pattern1)){
             li2.classList.add('color');
         }
-        if(input.value.match(pattern2)===null){
+        if(input.value.match(pattern2)){
             li3.classList.add('color');
         }
-        if(input.value.length <8)
+        if(input.value.length >=8)
         {
             li4.classList.add('color');
         }
