@@ -59,6 +59,7 @@ function UserTable({_content, _form, _addButton, _userInfo, _localStorageKeyName
                         location.reload();
                     }
                 }
+
             })
         }
         editButton.addEventListener('click', handleEdit);
