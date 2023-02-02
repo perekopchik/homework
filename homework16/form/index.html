@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+  <form id="form" class="form">
+    <h2>Регистрация</h2>
+    <label class="form-control">
+      <span>Имя</span>
+      <input
+              data-req="Имя обязательное"
+              type="text"
+              name="username"
+              placeholder="Введите здесь Ваше имя"
+      >
+    </label>
+    <label class="form-control">
+      <span>Почта</span>
+      <input
+              data-req="Проверьте правильность email"
+              type="text"
+              name="email"
+              placeholder="Введите Вашу почту"
+      >
+    </label>
+    <label class="form-control">
+      <span>Пароль</span>
+      <input
+              data-req="Пароль обязателен"
+              data-password="Проверьте правильность пароля"
+              data-min_length="5"
+              data-min_message="Минимальная длинна N символов"
+              type="password"
+              name="password"
+              placeholder="Введите Ваш пароль"
+      >
+    </label>
+    <label class="form-control">
+      <span>Подтверждение пароля</span>
+      <input
+              data-req="Пароль обязателен"
+              data-password="Проверьте правильность пароля"
+              data-min_length="5"
+              data-min_message="Минимальная длинна N символов"
+              type="password"
+              name="password1"
+              placeholder="Введите Ваш пароль"
+      >
+    </label>
+    <label class="form-control form-control--line">
+      <span>Я согласен с условиями</span>
+      <input
+              data-req="Обязательно согласитесь"
+              type="checkbox"
+              name="agree"
+      >
+    </label>
+    <button class="button" type="submit">Зарегистрироваться</button>
+  </form>
+</div>
+
+
+<script src="main.js"></script>
+</body>
+</html>
