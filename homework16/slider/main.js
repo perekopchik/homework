@@ -1,53 +1,47 @@
-function Slider(prevButton, nextButton, list, dot) {
-    this.timer = undefined;
-    this._prev = document.querySelector(prevButton);
-    this._next = document.querySelector(nextButton);
-    this._list = document.querySelector(list);
-    this._listDot = document.querySelector(dot);
-
-    this.changeItem = function (active, newElement) {
-        if (newElement) {
-            active.classList.remove('active');
-            newElement.classList.add('active');
-        }
+const _list = document.querySelector('.js--list');
+const _prev = document.querySelector('.js--slider__prev');
+const _next = document.querySelector('.js--slider__next');
+const _listDot = document.querySelector('.js--dots');
+const changeItem = function (active, newElement) {
+    if (newElement) {
+        active.classList.remove('active');
+        newElement.classList.add('active');
     }
-    this.length = document.querySelectorAll('li').length;
 }
 
-Slider.prototype.next = function () {
-    const active = this._list.querySelector('.active');
-    const activeDot = this._listDot.querySelector('.active');
-    const dotsLength = String(this._listDot.getElementsByTagName('li').length);
-    this._prev.classList.remove('slider__opacity');
-    if (active.nextElementSibling?.textContent === dotsLength) {
-        this._next.classList.add('slider__opacity');
+change = function (){
+    const active =_list.querySelector('.active');
+    const activeDot = _listDot.querySelector('.active');
+    _prev.classList.remove('slider__opacity');
+    if (active.nextElementSibling.textContent === '15') {
+        _next.classList.add('slider__opacity');
+        clearInterval(timerId);
     }
-    this.changeItem(activeDot, activeDot.nextElementSibling);
-    this.changeItem(active, active.nextElementSibling);
+    changeItem(activeDot, activeDot.nextElementSibling);
+    changeItem(active,active.nextElementSibling);
 }
-/*Slider.prototype.auto = function (){
-    const active = this._list.querySelector('.active');
-    const dotsLength = String(this._listDot.getElementsByTagName('li').length);
-    do {
-        this.timer = setInterval(this.next, 1000);
-    }while(active.nextElementSibling?.textContent === dotsLength);
-}*/
-Slider.prototype.prev = function () {
-    const active = this._list.querySelector('.active');
-    const activeDot = this._listDot.querySelector('.active');
-    this._next.classList.remove('slider__opacity');
-    if (active.previousElementSibling?.textContent === '1') {
-        this._prev.classList.add('slider__opacity');
+this.timerId = setInterval(change, 5000);
+_next.addEventListener('click', () => {
+    clearInterval(this.timerId);
+    const activeDot = _listDot.querySelector('.active');
+    const active = _list.querySelector('.active');
+    _prev.classList.remove('slider__opacity');
+    if (active.nextElementSibling.textContent === '15') {
+        _next.classList.add('slider__opacity');
     }
-    this.changeItem(activeDot, activeDot.previousElementSibling);
-    this.changeItem(active, active.previousElementSibling);
-}
-
-const slider = new Slider('.js--slider__prev', '.js--slider__next', '.js--list', '.js--dots');
-document.querySelector('.js--slider__next').addEventListener('click', function () {
-    slider.next();
+    changeItem(activeDot, activeDot.nextElementSibling);
+    changeItem(active, active.nextElementSibling);
+    this.timerId = setInterval(change, 5000);
 })
-document.querySelector('.js--slider__prev').addEventListener('click', function () {
-    slider.prev();
+_prev.addEventListener('click', () => {
+    clearInterval(this.timerId);
+    const activeDot = _listDot.querySelector('.active');
+    const active = _list.querySelector('.active');
+    _next.classList.remove('slider__opacity');
+    if (active.previousElementSibling.textContent === '1') {
+        _prev.classList.add('slider__opacity');
+    }
+    changeItem(activeDot, activeDot.previousElementSibling);
+    changeItem(active, active.previousElementSibling);
+    this.timerId = setInterval(change, 5000);
 })
-
