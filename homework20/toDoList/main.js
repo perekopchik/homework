@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 /*            const response = fetch(`${API_URL}/${id}`,{method:"DELETE"});
             response.then(()=> console.log('Delete successful'))
                 })*/
-            this.closest('.todo-item').remove();
+            this.closest('.todo-item').remove();;
         }
         this.createTemplate = ({text,checked}) => {
             return (
