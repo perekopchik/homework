@@ -5,56 +5,88 @@ document.addEventListener('DOMContentLoaded', function () {
         this.deleteName = 'js--delete';
         this.input = document.querySelector(input);
         this.todosWrapper = document.querySelector(todosWrapper);
-        this.loadFromServer = function (){
-           const response =  fetch(API_URL,{method: "GET"});
-           response
-               .then(res=>res.json())
-               .then(data =>{
-                   data.forEach(todoItem=>{
-                       this.todosWrapper.insertAdjacentHTML('afterbegin',this.createTemplate(todoItem))
-                   })
-               });
+        this.loadFromServer = function () {
+            const response = fetch(API_URL, {method: "GET"});
+            response
+                .then(res => res.json())
+                .then(data => {
+                    data.forEach(todoItem => {
+                        this.todosWrapper.insertAdjacentHTML('afterbegin', this.createTemplate(todoItem))
+                    })
+                    document.querySelectorAll(`.${this.deleteName} `).forEach(button => {
+                        button.addEventListener('click', this.delete);
+                    })
+                    document.querySelectorAll(`.${this.completeName}`).forEach(checkboxItem => {
+                        checkboxItem.addEventListener('click', this.complete);
+                    })
+                });
         }
         this.addItem = (event) => {
             event.preventDefault();
+            const randomId = Math.floor(Math.random() * 100);
             const value = this.input.value;
-            const response =  fetch(API_URL,{
+            const response = fetch(API_URL, {
                 method: "POST",
-                headers: {'Content-Type' : 'application/json'},
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    id: Math.floor(Math.random()*100),
+                    id: randomId,
                     text: value,
                     checked: false
 
-                })});
+                })
+            });
             response
                 .then(res => {
-                    if(res.status===201){
+                    if (res.status === 201) {
                         this.input.value = '';
-                        const item = this.createTemplate({text:value,checked:false});
+                        const item = this.createTemplate({id: randomId, text: value, checked: false});
                         this.todosWrapper.insertAdjacentHTML('afterbegin', item);
-                        document.querySelectorAll(`.${this.completeName}`).forEach(checkboxItem => {
-                            checkboxItem.addEventListener('click', this.complete);
-                        })
                     }
+                    document.querySelectorAll(`.${this.deleteName} `).forEach(button => {
+                        button.addEventListener('click', this.delete);
+                    })
+                    document.querySelectorAll(`.${this.completeName}`).forEach(checkboxItem => {
+                        checkboxItem.addEventListener('click', this.complete);
+                    })
                 })
-            document.querySelectorAll(`.${this.deleteName} `).forEach(button => {
-                button.addEventListener('click', this.delete);
-            })
         }
         this.complete = function () {
-            this.closest('.todo-item').classList.toggle("todo-item__desc--underline");
+            const id = this.closest('.todo-item').dataset.id;
+            const text = this.closest('.todo-item').children[1].textContent;
+            let checked;
+            const response = fetch(`${API_URL}/${id}`, {method: "GET"})
+            response.then(res => res.json())
+                .then(data => {
+                    if (data.checked === false) {
+                        checked = true;
+                    }
+                    if (data.checked === true) {
+                        checked = false;
+                    }
+                    let requestOptions = {
+                        method: 'PUT',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            id: id,
+                            text: text,
+                            checked: checked
+                        })
+                    };
+                    fetch(`${API_URL}/${id}`, requestOptions)
+                        .then(response => response.json())
+                        .then(data => data)
+                    this.closest('.todo-item').classList.toggle("todo-item__desc--underline");
+                })
         }
         this.delete = function () {
-/*            const response = fetch(`${API_URL}/${id}`,{method:"DELETE"});
-            response.then(()=> console.log('Delete successful'))
-                })*/
-            this.closest('.todo-item').remove();;
+            const id = this.closest('.todo-item').dataset.id;
+            fetch(`${API_URL}/${id}`, {method: "DELETE"})
+            this.closest('.todo-item').remove();
         }
-        this.createTemplate = ({text,checked}) => {
+        this.createTemplate = ({id, text, checked}) => {
             return (
                 `       
-       <label class="todo-item">
+       <label data-id="${id}" class="todo-item">
             <input  class="${this.completeName} todo-item__input" ${checked ? 'checked="true"' : ''}"  type="checkbox">
             <div class="todo-item__desc ">${text}</div>
             <button class="todo-item__delete ${this.deleteName}">Удалить</button>
