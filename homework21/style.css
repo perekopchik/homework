@@ -1,0 +1,33 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #9187ff;
+}
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 350px;
+}
+.input{
+    border-radius: 5px;
+}
+button{
+    border-radius: 5px;
+}
+.body{
+    display: none;
+    background: #606f73;
+    border-radius: 5px;
+    padding: 30px;
+}
+.hidden{
+    display: block;
+}
+*{
+    margin: 5px;
+    font-family: sans-serif;
+}
