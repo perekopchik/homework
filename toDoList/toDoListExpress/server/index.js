@@ -41,7 +41,7 @@ app.put('/todos/:id',(req,res)=>{
             return item
         }
     })
-    res.json(todos);
+    res.send(todos);
 })
 app.delete('/todos/:id',(req,res)=>{
     const id = +req.params;

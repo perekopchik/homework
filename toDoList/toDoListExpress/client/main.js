@@ -24,12 +24,12 @@ document.addEventListener('DOMContentLoaded', function () {
         this.addItem = (event) => {
             event.preventDefault();
             const randomId = Math.floor(Math.random() * 100);
+            console.log(randomId)
             const value = this.input.value;
             const response = fetch(`${API_URL}/todos`, {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    id: randomId,
                     text: value,
                     checked: false
 
@@ -67,8 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify({
                             id: id,
-                            text: data.text,
-                            checked: checked
+                            text: data.text
                         })
                     };
                     fetch(`${API_URL}/todos/${id}`, requestOptions)
