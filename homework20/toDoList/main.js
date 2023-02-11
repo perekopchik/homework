@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         this.complete = function () {
             const id = this.closest('.todo-item').dataset.id;
-            const text = this.closest('.todo-item').children[1].textContent;
             let checked;
             const response = fetch(`${API_URL}/${id}`, {method: "GET"})
             response.then(res => res.json())
@@ -68,14 +67,13 @@ document.addEventListener('DOMContentLoaded', function () {
                         headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify({
                             id: id,
-                            text: text,
+                            text: data.text,
                             checked: checked
                         })
                     };
                     fetch(`${API_URL}/${id}`, requestOptions)
                         .then(response => response.json())
                         .then(data => data)
-                    this.closest('.todo-item').classList.toggle("todo-item__desc--underline");
                 })
         }
         this.delete = function () {
