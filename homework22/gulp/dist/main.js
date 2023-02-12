@@ -1,12 +1,1 @@
-"use strict";
-
-var response = axios.get('http://api.openweathermap.org/data/2.5/weather?q=LVIV&units=metric&APPID=5d066958a60d315387d9492393935c19');
-response.then(function (res) {
-  document.querySelector('.q').innerHTML = res.data.name;
-  document.querySelector('.temp').innerHTML = res.data.main.temp;
-  document.querySelector('.pressure').innerHTML = res.data.main.pressure;
-  document.querySelector('.description').innerHTML = res.data.weather[0].description;
-  document.querySelector('.humidity').innerHTML = res.data.main.humidity;
-  document.querySelector('.speed').innerHTML = res.data.wind.speed;
-  document.querySelector('.deg').innerHTML = res.data.wind.deg;
-});
+"use strict";var response=axios.get("http://api.openweathermap.org/data/2.5/weather?q=LVIV&units=metric&APPID=5d066958a60d315387d9492393935c19");response.then(function(e){document.querySelector(".q").innerHTML=e.data.name,document.querySelector(".temp").innerHTML=e.data.main.temp,document.querySelector(".pressure").innerHTML=e.data.main.pressure,document.querySelector(".description").innerHTML=e.data.weather[0].description,document.querySelector(".humidity").innerHTML=e.data.main.humidity,document.querySelector(".speed").innerHTML=e.data.wind.speed,document.querySelector(".deg").innerHTML=e.data.wind.deg});
