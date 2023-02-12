@@ -1,0 +1,54 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+.weather{
+    background: linear-gradient(blue, lightblue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 200px;
+    padding: 5px;
+    border-radius: 10px;
+
+}
+
+.temp{
+    position: relative;
+    left: 70px;
+    top: 80px;
+}
+.description{
+    position: relative;
+    left: 70px;
+    top: 70px;
+}
+.icon{
+    height: 60px;
+    position: relative;
+    left: 75px;
+    bottom: 90px;
+}
+.p1{
+    position: relative;
+    right: 45px;
+    top: 70px;
+}
+.p2{
+    position:relative ;
+    right: 55px;
+    top: 10px;
+}
+.p3{
+    position: relative;
+    right: 50px;
+    top: 50px;
+}
+.p4{
+    position: relative;
+    left: 25px;
+    top: 32px;
+}
