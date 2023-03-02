@@ -6,14 +6,13 @@ export function App (){
     const [todos, setTodos] = useState([]);
     const addItem = (event) => {
         event.preventDefault();
-        setTodos({
-            todos: [...todos,{
+        setTodos([...todos,{
                 id: Math.floor(Math.random() * 100),
                 text: event.target[0].value,
                 checked: false
             }]
-        },() => event.target[0].value = '')
-
+        )
+        event.target[0].value = ''
     }
     return (
         <div className="container">
