@@ -2,10 +2,12 @@ import React from "react";
 
 const BaseApp = function () {
     let textInput = React.createRef();
-    let ul = React.createRef();
+    const [ul,setUl] = React.useState(['HTML','CSS','JavaScript'])
 
-    function showInput() {
-        ul.current.insertAdjacentHTML('beforeend', `<li>${textInput.current.value}</li>`)
+    function showInput(e) {
+        e.preventDefault();
+        setUl([...ul,textInput.current.value])
+/*        ul.current.insertAdjacentHTML('beforeend', `<li>${textInput.current.value}</li>`)*/
         textInput.current.value = '';
     }
 
@@ -15,10 +17,8 @@ const BaseApp = function () {
     return <div>
         <h2>{name}</h2>
         <h2>{surname}</h2>
-        <ul ref={ul}>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
+        <ul>
+            {ul.map(item=> <li key={item}>{item}</li>)}
         </ul>
         <h3>email: kirilperekopayko@gmail.com</h3>
         <h3>phone: +380506878645</h3>
