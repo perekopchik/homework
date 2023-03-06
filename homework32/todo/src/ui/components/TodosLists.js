@@ -3,22 +3,11 @@ import {todosSelectors} from "../../engine/todos/selectors";
 import {useEffect} from "react";
 import {getItems} from "../../engine/todos/thunk/getItems";
 import {DeleteButton} from "./DeleteButton";
-import {changeItem} from "../../engine/todos/thunk/changeItem";
+import {ChangeButton} from "./ChangeButton";
 
 export function TodosLists() {
     const dispatch = useDispatch();
     const todos = useSelector(todosSelectors.items);
-    const ChangeButton = function () {
-        const dispatch = useDispatch();
-
-        const changeTodo = (e) => {
-            dispatch(changeItem(e))
-        }
-        return (
-            <button onClick={changeTodo}>Change</button>
-        )
-    }
-
     useEffect(() => {
         dispatch(getItems)
     }, []);

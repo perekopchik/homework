@@ -1,10 +1,9 @@
+import {changeItems} from "../slice";
 
 
-export const changeItem = (props,e) => (dispatch, state) => {
-    const {todos} = state();
+export const changeItem = (e) => (dispatch) => {
+    e.preventDefault();
     const id = Number(e.target.closest('.todo-item').dataset.id);
-    const text = todos.items.find(todo => todo.id === id).text;
-    console.log(text);
-
+    dispatch(changeItems({id: id,text: e.target[0].value}))
 
 }
