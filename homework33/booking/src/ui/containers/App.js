@@ -9,7 +9,7 @@ function App() {
         <HistoryRouter history={history}>
             <Routes>
                 <Route path="/" element={<Layout/>}>
-                    {pages.map(route => <Route key={route.link} path={route.link} element={route.element}/>)}
+                    {pages.map(route => <Route key={route.link} path={route.link} element={route.element} />)}
                 </Route>
             </Routes>
         </HistoryRouter>

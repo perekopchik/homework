@@ -25,5 +25,6 @@ const store = configureStore({
     middleware: () => [sagaMiddleWare,routerMiddleware]
 });
 
+sagaMiddleWare.run(rootSaga);
 export const history = createReduxHistory(store);
 export default store;

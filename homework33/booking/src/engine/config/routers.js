@@ -1,10 +1,12 @@
 import {Main} from "../../ui/pages/Main";
 import {About} from "../../ui/pages/About";
+import {Hotels} from "../../ui/pages/Hotels";
 
 
 export const routes = {
     home: '/',
-    about: '/about'
+    about: '/about',
+    hotels: '/hotels'
 }
 export const pages = [
     {
@@ -14,5 +16,9 @@ export const pages = [
     {
         link: routes.about,
         element: <About/>
+    },
+    {
+        link: routes.hotels,
+        element: <Hotels/>
     }
 ]

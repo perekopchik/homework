@@ -19,8 +19,8 @@ export function Layout() {
     return (
         <Provider store={store}>
             <ThemeProvider theme={theme}>
+                <Header/>
                 <Container>
-                    <Header/>
                     <Outlet/>
                 </Container>
             </ThemeProvider>

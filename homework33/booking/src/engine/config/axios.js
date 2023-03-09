@@ -12,7 +12,7 @@ const api = Object.freeze({
         return instance.get('destination')
     },
     getHotels(params) {
-        return instance.get('destination',{
+        return instance.get('hotels',{
             params,
         })
     }
