@@ -8,12 +8,14 @@ import {setLoading} from "../../slice";
 
 export function* callGetHotelsWorker(action) {
     const { payload } = action;
-    console.log(payload.destination)
+    const currentId = payload.destination;
     yield put(setLoading(true));
     const response = yield call (api.getHotels);
+    const destinations = yield call (api.getDestination);
+    const nameDestination = destinations.data.find(elem=> elem.value === currentId).label;
     if (response.status === 200) {
-        yield put(setItems(response.data));
-        console.log(payload)
+        const arrayHotels = response.data.filter(elem => elem.city === nameDestination)
+        yield put(setItems(arrayHotels));
     }
     yield delay(2000);
     yield put(setLoading(false));

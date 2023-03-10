@@ -9,7 +9,7 @@ export function Button(props) {
     return(
         <ButtonMUI disabled={disabled} type={type} variant={variant}>{
             to
-            ? <Link to={to}>{children}</Link>
+            ? <Link to={to} style={{ textDecoration: 'none',color:'black' }}>{children}</Link>
                 : children
         }</ButtonMUI>
     )
@@ -17,4 +17,5 @@ export function Button(props) {
 
 Button.defaultProps = {
     variant: "contained",
+
 }

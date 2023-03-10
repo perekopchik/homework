@@ -44,7 +44,7 @@ export const SearchForm = () => {
                             <Grid item xs={2}>
                                 <Field
                                     disabled={destinationLoading}
-                                    name='Destination'
+                                    name='destination'
                                     label='Destination'
                                     options={destinationItems}
                                     component={Select}
